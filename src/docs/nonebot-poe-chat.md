@@ -108,7 +108,7 @@ playwright install chromium
 poe_cookie = "f87HlVW- %3D%3D"
 ```
 
-![ck获取](https://github.com/canxin121/docs/blob/main/src/docs/resource/ck.png)
+![ck获取](src/docs/resource/ck.png)
 
 ### 管理员账号:two:
 
