@@ -1,0 +1,5 @@
+
+User-agent:*
+Disallow:
+
+Sitemap: https://canxin121.github.io/docs/docs/sitemap.xml
