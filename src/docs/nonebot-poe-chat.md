@@ -108,7 +108,7 @@ playwright install chromium
 poe_cookie = "f87HlVW- %3D%3D"
 ```
 
-![ck获取](./src/docs/resource/ck.png)
+![ck获取](/resource/ck.png)
 
 ### 管理员账号:two:
 
@@ -161,13 +161,13 @@ poe_passwd = passwd
 
 | Image 1 | Image 2 |
 |:-------:|:-------:|
-| ![1](https://github.com/canxin121/docs/blob/main/src/docs/resource/demo(1).png) | ![2](https://github.com/canxin121/docs/blob/main/src/docs/resource/demo(2).png) |
+| ![1](/resource/demo(1).png) | ![2](/resource/demo(2).png) |
 | Image 3 | Image 4 |
-| ![3](https://github.com/canxin121/docs/blob/main/src/docs/resource/demo(3).png) | ![4](https://github.com/canxin121/docs/blob/main/src/docs/resource/demo(4).png) |
+| ![3](/resource/demo(3).png) | ![4](/resource/demo(4).png) |
 | Image 5 | Image 6 |
-| ![5](https://github.com/canxin121/docs/blob/main/src/docs/resource/demo(5).png) | ![6](https://github.com/canxin121/docs/blob/main/src/docs/resource/demo(6).png) |
+| ![5](/resource/demo(5).png) | ![6](/resource/demo(6).png) |
 | Image 7 | Image 8 |
-| ![7](https://github.com/canxin121/docs/blob/main/src/docs/resource/demo(7).png) | ![8](https://github.com/canxin121/docs/blob/main/src/docs/resource/demo(8).png) |
+| ![7](/resource/demo(7).png) | ![8](/resource/demo(8).png) |
 
 ## :balloon:更新:balloon:
 
