@@ -68,7 +68,10 @@ copyright: canxin121版权所属，禁止随意转载
 - 以下功能仅限poe管理员使用  :point_up:
 - 登录:poelogin / plogin / pl  
 - 添加预设:poeaddprompt / 添加预设 / pap  
-- 删除预设:poeremoveprompt / 删除预设 / prp"  
+- 删除预设:poeremoveprompt / 删除预设 / prp  
+- 切换自动创建的默认预设:poechangeprompt / 切换自动预设 / pcp  
+
+---
 
 ## :dizzy_face:安装:dizzy_face:
 
@@ -110,7 +113,7 @@ poe_cookie = "f87HlVW- %3D%3D"
 
 ![ck获取](/resource/ck.png)
 
-### 管理员账号:two:
+### 管理员账号(必填):two:
 
 2.poe_superusers，poe插件管理员qq号  
 
@@ -119,6 +122,7 @@ poe_superusers = ["123456","132145"]
 ```
 
 ### 图片和链接回复:three:
+> 注意必须开启picable,才能开启qrable,前两个都开启,才能开启urlable（默认全开）  
 
 3.是否以图片形式回复,不填的话，默认值为True
 
@@ -126,14 +130,30 @@ poe_superusers = ["123456","132145"]
 poe_picable = True
 ```
 
-4.是否在图片形式回复后跟上二维码的链接,不填的话，默认为True
+4.是否在图片上粘上二维码
+
+```md
+poe_qrable = False
+```
+
+5.是否在图片形式回复后跟上二维码的链接,不填的话，默认为True
 
 ```md
 poe_urlable = True
 ```
 
-5.以下只是示例，根据自己实际情况调整；
-代理地址如果你的电脑直接就能访问外网，也就是系统代理，请不填写，不要留空，直接不填;  
+### 建议回复:four:
+
+6.是否开启建议回复，不填的话，默认True
+
+```md
+poe_suggestable = True
+```
+
+### 代理地址:five:
+
+7.以下只是示例，根据自己实际情况调整；
+代理地址如果你的电脑直接就能访问外网，也就是系统代理，请都不填写，不要留空，直接都不填;  
 如果你只开启了局域网代理，则填写相应信息;
 
 - 首先是代理地址
@@ -171,6 +191,9 @@ poe_passwd = passwd
 
 ## :balloon:更新:balloon:
 
+- 2023/4/27 v1.1.0:
+    1.支持管理员切换自动创建的预设  
+    2.支持在配置中开启和关闭建议回复和图片中二维码，详情看上文 配置  
 - 2023/4/26 v1.0.9:  
     1.修复cookie致命bug  
     2./pl登录可能暂时不好用了，因为poe在检测机器人登录，请自行填写ck  
