@@ -44,32 +44,46 @@ copyright: canxin121版权所属，禁止随意转载
 
 ### 用户隔离的命令:pencil2:
 
-- 以下命令均支持用户隔离  :open_hands:
-- 对话:poetalk / ptalk / pt + 你要询问的内容  
-- 清空历史对话:poedump / pdump / pd  
-- 创建机器人:poecreate / 创建bot / pc  
-- 删除机器人:poeremove / 删除bot / pr  
-- 切换机器人:poeswitch / 切换bot / ps  
+> 每个人互不干扰
+
+> 可以直接回复机器人给你的最新的回答来继续对话，无需命令  
+
+> 可以使用数字索引来使用建议回复  
+
+| 指令 | 需要@ | 范围 | 说明 | 权限 |
+|:----:|:----:|:----:|:----:|:----:|
+| poetalk / ptalk / pt + 询问的内容 | 否 | 群聊、私聊 | 进行对话 | 普通用户 |
+| poedump / pdump / pd | 否 | 群聊、私聊 | 清空当前机器人历史对话 | 普通用户 |
+| poecreate / 创建bot / pc | 否 | 群聊、私聊 | 创建机器人 | 普通用户 |
+| poeremove / 删除bot / pr | 否 | 群聊、私聊 | 删除机器人 | 普通用户 |
+| poeswitch / 切换bot / ps | 否 | 群聊、私聊 | 切换机器人 | 普通用户 |
 
 ---
 
 ### 用户共享的命令:black_nib:
 
-- 以下命令均是多用户共享的  :open_hands:
-- 搜索引擎返回的是链接及标题  
-- NeevaAI搜索引擎:poeneeva / pneeva / pn  
-- 共享的gpt对话:poesharegpt / psharegpt / psg + 对话的内容
-- 清空共享的gpt的对话历史:poegptdump / poegpt清除 / pgd  
-- 共享的claude对话:poeshareclaude / pshareclaude / psc + 对话的内容
-- 清空共享的claude的对话历史:poeclaudedump / poeclaude清除 / pcd  
+> 所有人都是用的同一个机器人
+
+| 指令 | 需要@ | 范围 | 说明 | 权限 |
+|:----:|:----:|:----:|:----:|:----:|
+| poeneeva / pneeva / pn | 否 | 群聊、私聊 | 使用 NeevaAI 搜索引擎 | 普通用户 |
+| poesharegpt / psharegpt / psg + 要询问的内容| 否 | 群聊、私聊 | 共享 GPT 对话 | 普通用户 |
+| poegptdump / poegpt清除 / pgd | 否 | 群聊、私聊 | 清空共享的 GPT 对话历史 | 普通用户 |
+| poeshareclaude / pshareclaude / psc + 要询问的内容| 否 | 群聊、私聊 | 共享 Claude 对话 | 普通用户 |
+| poeclaudedump / poeclaude清除 / pcd | 否 | 群聊、私聊 | 清空共享的 Claude 对话历史 | 普通用户 |
 
 ---
 
-- 以下功能仅限poe管理员使用  :point_up:
-- 登录:poelogin / plogin / pl  
-- 添加预设:poeaddprompt / 添加预设 / pap  
-- 删除预设:poeremoveprompt / 删除预设 / prp  
-- 切换自动创建的默认预设:poechangeprompt / 切换自动预设 / pcp  
+### 管理员命令:flags:
+
+> 以下功能仅限poe管理员使用
+
+| 指令 | 需要@ | 范围 | 说明 | 权限 |
+|:----:|:----:|:----:|:----:|:----:|
+| poelogin / plogin / pl | 否 | 群聊、私聊 | 登录账号 | poe管理员 |
+| poeaddprompt / 添加预设 / pap | 否 | 群聊、私聊 | 添加预设 | poe管理员 |
+| poeremoveprompt / 删除预设 / prp | 否 | 群聊、私聊 | 删除预设 | poe管理员 |
+| poechangeprompt / 切换自动预设 / pcp | 否 | 群聊、私聊 | 切换自动创建机器人时的默认预设 | poe管理员 |
 
 ---
 
@@ -122,6 +136,7 @@ poe_superusers = ["123456","132145"]
 ```
 
 ### 图片和链接回复:three:
+
 > 注意必须开启picable,才能开启qrable,前两个都开启,才能开启urlable（默认全开）  
 
 3.是否以图片形式回复,不填的话，默认值为True
@@ -177,7 +192,6 @@ poe_passwd = passwd
 ```
 
 ## :gift:示例:gift:
-
 
 | Image 1 | Image 2 |
 |:-------:|:-------:|
