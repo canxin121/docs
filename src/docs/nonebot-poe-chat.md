@@ -96,6 +96,17 @@ copyright: canxin121版权所属，禁止随意转载
 | poeremoveprompt / 删除预设 / prp | 否 | 群聊、私聊 | 删除预设 | poe管理员 |
 | poechangeprompt / 切换自动预设 / pcp | 否 | 群聊、私聊 | 切换自动创建机器人时的默认预设 | poe管理员 |
 
+### 特权白名单命令:tada:
+
+> 以下功能仅限accesslist白名单用户(特权用户)使用
+
+| 指令 | 需要@ | 范围 | 说明 | 权限 |
+|:----:|:----:|:----:|:----:|:----:|
+| poesharegpt4 \ psharegpt4 \ psg4 + 询问内容\n | 否 | 群聊、私聊 | 使用GPT4对话 | 特权用户 |
+| poegpt4dump \ poegpt4清除 \ pg4d | 否 | 群聊、私聊 | 清除GPT4对话历史 | 特权用户 |
+| poeshareclaudep \ pshareclaudp \ pscp +询问内容 | 否 | 群聊、私聊 | 使用CLAUDE+对话 | 特权用户 |
+| poeclaudepdump \ poeclaudep清除 \ pcpd | 否 | 群聊、私聊 | 清除CLADUE+对话历史 | 特权用户 |
+
 ---
 
 ## :dizzy_face:安装:dizzy_face:
@@ -159,49 +170,57 @@ poe_whitelist = ["123","456"]
 poe_blacklist = ["123","456"]
 ```
 
-### 自动转图片的阈值:four:
+### 特权用户名单:four:
+
+4.特权用户名单，可以使用gpt4和claude+的用户的qq号或者群号
+
+```md
+poe_accesslist = ["123","456"]
+```
+
+### 自动转图片的阈值:five:
 
 > 如果没有设置poe_picable的值(既没写False也没写True)，则超过设置的poe_limit自动转化为图片，是否需要二维码和链接可以参考下一个配置项的设置
 
-4.达到多少字数自动转图片，默认为350
+5.达到多少字数自动转图片，默认为350
 
 ```md
 poe_limit = 350
 ```
 
-### 图片和链接回复:five:
+### 图片和链接回复:six:
 
 > 注意如果设置不以图片形式回复(poe_picable = False)，后两个配置项就是无效的  
 
-5.是否以图片形式回复,不填的话，默认值为True
+6.是否以图片形式回复,不填的话，默认值为True
 
 ```md
 poe_picable = True
 ```
 
-6.是否在图片上粘上二维码
+7.是否在图片上粘上二维码
 
 ```md
 poe_qrable = False
 ```
 
-7.是否在图片形式回复后跟上二维码的链接,不填的话，默认为True
+8.是否在图片形式回复后跟上二维码的链接,不填的话，默认为True
 
 ```md
 poe_urlable = True
 ```
 
-### 建议回复:six:
+### 建议回复:seven:
 
-8.是否开启建议回复，不填的话，默认True
+9.是否开启建议回复，不填的话，默认True
 
 ```md
 poe_suggestable = True
 ```
 
-### 代理地址:seven:
+### 代理地址:eight:
 
-9.以下只是示例，根据自己实际情况调整；
+10.以下只是示例，根据自己实际情况调整；
 代理地址如果你的电脑直接就能访问外网，也就是系统代理，请都不填写，不要留空，直接都不填;  
 如果你只开启了局域网代理，则填写相应信息;
 
@@ -240,6 +259,9 @@ poe_passwd = passwd
 
 ## :balloon:更新:balloon:
 
+- 2023/5/2 v1.1.8:  
+    1.增加GPT4和CLAUDE+的使用命令  
+    2.增加能使用GPT4和CLAUDE+的配置项poe_accesslist,只有list中的qq号和群号可以使用（不填默认poe管理员）  
 - 2023/5/1 v1.1.6:  
     1.完善预设管理的逻辑  
 - 2023/5/1 v1.1.5:  
