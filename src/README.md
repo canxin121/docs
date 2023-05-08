@@ -14,6 +14,11 @@ actions:
     link: /docs
 
 features:
+
+  - title: Spark-GPT
+    icon: markdown
+    details: 全聚合的gpt插件，将各种ai接入各平台(未完待续)
+    link: /docs/Spark_GPT.html
   - title: nonebot-poe-chat
     icon: markdown
     details: 基于nonebot和playwright，将poe.com接入qq端交互
