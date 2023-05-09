@@ -20,6 +20,8 @@ copyright: canxin121版权所属，禁止随意转载
 
 <!-- more -->
 
+## 本项目已被融入Spark-GPT，请使用Spark-GPT
+
 ## :yum:功能特性:yum:
 
 - 可以使用gpt3.5和claude两种模型，支持自定义预设和本地预设  
