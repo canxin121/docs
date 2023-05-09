@@ -14,6 +14,9 @@ export const zhNavbar = navbar([
         prefix: "",
         children: [
           {
+            text: "Spark_GPT", icon: "more", link: "Spark_GPT" 
+          },
+          {
             text: "Nonebot-poe-chat", icon: "more", link: "nonebot-poe-chat" 
           },
           {
