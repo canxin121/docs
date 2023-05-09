@@ -53,6 +53,21 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/gwhelp / gwh` | 获取GPT_Web帮助说明。 |
 
+#### 通用命令
+
+- 所有用户均可使用
+
+| 命令 | 描述 |
+| --- | --- |
+| `/botlist / bl` | 获取你的所有机器人的列表。 |
+
+- 只有spark管理员可以使用
+
+| 命令 | 描述 |
+| --- | --- |
+| `/添加预设 / ap` | 添加通用预设 |
+| `/删除预设 / rp` | 删除通用预设 |
+
 ### spark-gpt Poe使用说明
 
 > 共享的机器人供多人共同使用，而用户隔离的机器人每个人都是相互独立的。
@@ -71,7 +86,7 @@ copyright: canxin121版权所属，禁止随意转载
 
 | 命令 | 描述 |
 | --- | --- |
-| `/poetalk / ptalk / pt + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
+| `/ptalk / pt + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
 | `/poecreate / pc` | 创建机器人。 |
 | `/poeremove / pr (+ 机器人名称)` | 删除指定名称的机器人。 |
 | `/poeswitch / ps (+ 机器人名称)` | 切换到指定名称的机器人。 |
@@ -140,8 +155,8 @@ copyright: canxin121版权所属，禁止随意转载
 
 | 命令 | 描述 |
 | --- | --- |
-| `/对话` | 对话功能，支持特性。 |
 | `/gwtalk / gwt + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
+
 
 #### 机器人管理命令
 
@@ -149,7 +164,7 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/gwcreate / gwc` | 创建机器人。 |
 | `/gwremove / gwr (+ 机器人名称)` | 删除指定名称的机器人。 |
-| `/gwchange / gwc (+ 机器人名称)` | 切换到指定名称的机器人。 |
+| `/gwswitch / gws (+ 机器人名称)` | 切换到指定名称的机器人。 |
 | `/机器人名字 + 空格 + 你要询问的内容` | 指定机器人对话。 |
 
 #### 管理员命令
@@ -299,6 +314,8 @@ gpt_web_urlable = True
 
 | Image 1 | Image 2 |
 |:-------:|:-------:|
-| ![1](/resource/demo(1).png) | ![2](/resource/demo(2).png) |
+| ![1](/resource/spark/demo (1).png) | ![2](/resource/spark/demo (2).png) |
+| ![1](/resource/spark/demo (3).png) | ![2](/resource/spark/demo (4).png) |
+| ![1](/resource/spark/demo (5).png) ||
 
 ## :balloon:更新:balloon
