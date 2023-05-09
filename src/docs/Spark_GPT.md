@@ -22,7 +22,7 @@ copyright: canxin121版权所属，禁止随意转载
 
 <!-- more -->
 
-## :yum:功能特性:yum
+## :yum:功能特性:yum:
 
 - 汇聚众多来源的gpt，支持多平台使用
 - 方便而全面的使用功能，便捷的管理员管理项
@@ -314,8 +314,8 @@ gpt_web_urlable = True
 
 | Image 1 | Image 2 |
 |:-------:|:-------:|
-| ![1](/resource/spark/demo (1).png) | ![2](/resource/spark/demo (2).png) |
-| ![1](/resource/spark/demo (3).png) | ![2](/resource/spark/demo (4).png) |
-| ![1](/resource/spark/demo (5).png) ||
+| ![1](/resource/spark/demo(1).png) | ![2](/resource/spark/demo(2).png) |
+| ![1](/resource/spark/demo(3).png) | ![2](/resource/spark/demo(4).png) |
+| ![1](/resource/spark/demo(5).png) ||
 
 ## :balloon:更新:balloon:
