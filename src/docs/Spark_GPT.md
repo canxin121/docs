@@ -29,7 +29,7 @@ copyright: canxin121版权所属，禁止随意转载
 - 完善的使用逻辑和任务处理逻辑
 - 美观而实用的markdown图片渲染回复
 
-## :heart_eyes:功能实用说明:heart_eyes
+## :heart_eyes:功能实用说明:heart_eyes:
 
 ### Spark-GPT 聚合帮助说明
 
@@ -175,9 +175,9 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/gwcp / gwchangeprompt` | 切换自动创建的默认预设。 |
 
-## :dizzy_face:安装:dizzy_face
+## :dizzy_face:安装:dizzy_face:
 
-### step.1:yellow_heart
+### step.1:yellow_heart:
 
 #### nb安装  
 
@@ -191,7 +191,7 @@ nb plugin install nonebot-plugin-spark-gpt
 pip install nonebot-plugin-spark-gpt
 ```
 
-### step.2:blue_heart
+### step.2:blue_heart:
 
 > 用于poe的稳定实现和render的渲染图片
 
@@ -199,7 +199,7 @@ pip install nonebot-plugin-spark-gpt
 playwright install chromium
 ```
 
-## :punch:配置:punch
+## :punch:配置:punch:
 
 > （在.env或你是用的.env_*中修改）  
 
@@ -310,7 +310,7 @@ gpt_web_urlable = True
 
 ```
 
-## :gift:示例:gift
+## :gift:示例:gift:
 
 | Image 1 | Image 2 |
 |:-------:|:-------:|
@@ -318,4 +318,4 @@ gpt_web_urlable = True
 | ![1](/resource/spark/demo (3).png) | ![2](/resource/spark/demo (4).png) |
 | ![1](/resource/spark/demo (5).png) ||
 
-## :balloon:更新:balloon
+## :balloon:更新:balloon:
