@@ -175,6 +175,31 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/gwcp / gwchangeprompt` | 切换自动创建的默认预设。 |
 
+### spark-gpt Cluade_Slack使用说明
+
+## 对话命令
+
+| 命令 | 描述 |
+| --- | --- |
+| `/ctalk / ct + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
+
+## 机器人管理命令
+
+| 命令 | 描述 |
+| --- | --- |
+| `/ccreate / cc` | 创建机器人。 |
+| `/cremove / cr (+ 机器人名称)` | 删除指定名称的机器人。 |
+| `/cswitch / cs (+ 机器人名称)` | 切换到指定名称的机器人。 |
+| `/机器人名字 + 空格 + 你要询问的内容` | 指定机器人对话。 |
+
+## 管理员命令
+
+- 仅限poe管理员使用
+
+| 命令 | 描述 |
+| --- | --- |
+| `/ccp / cchangeprompt` | 切换自动创建的默认预设。 |
+
 ## :dizzy_face:安装:dizzy_face:
 
 ### step.1:yellow_heart:
@@ -299,6 +324,8 @@ session token文件(必填)
 #endpoint api地址,默认值能用的情况下不要填写，以下为默认值
 gpt_web_api_url = "https://chat.loli.vet/"
 
+#代理配置，视情况填写或不填
+gpt_web_proxy = "" 
 #以下配置会覆盖通用配置
 gpt_web_superusers = ["123456","132145"]
 gpt_web_mode = "white"
@@ -310,12 +337,46 @@ gpt_web_urlable = True
 
 ```
 
+### Claude_slack配置
+
+- claude_id获取:  
+首先将claude加入到你的slack中来，参考链接[Claude的添加教程](https://blog.csdn.net/Ping_lz/article/details/130329751),并点击应用中的claude，点击聊天界面上方的claude的头像，复制其中的成员id作为claude_id（必填），比如U057LPZPPSL。
+
+- slack_user_token获取:  
+  首先参照 [slack app配置](https://ikechan8370.com/archives/chatgpt-plugin-for-yunzaipei-zhi-slack-claude )进行配置，获取到其中的（OAuth & Permissions中）User OAuth Token（xoxp-5258801~~,注意是xoxp不是xoxb）作为slack_user_token（必填）
+
+- channel_id获取:  
+然后进入slack聊天界面,选择(创建)一个专用的频道，将claude拉进这个频道。此时记下这个频道的网址中的channel_id（必填）（比如在这个链接中 https://app.slack.com/client/T057LPK0SP2/C0579MZR3LH/thread/C0579MZR3LH-1683734208.221819 ，channel_id是C0579MZR3LH，及thread前面的两个/中的内容）
+
+```md
+#三个必填配置
+slack_user_token = "xoxp-5258801026784~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+claude_id = "U057LPZPPSL"
+channel_id = "C0579MZR3LH"
+
+#代理配置视情况填写或不填写
+claude_slack_proxy = ""
+#以下配置会覆盖通用配置
+claude_slack_superusers = ["123456","132145"]
+claude_slack_mode = "white"
+claude_slack_whitelist = ["123","456"]
+claude_slack_blacklist = ["123","456"]
+claude_slack_limit = 350
+claude_slack_picable = True
+claude_slack_urlable = True
+
+```
+
 ## :gift:示例:gift:
 
 | Image 1 | Image 2 |
 |:-------:|:-------:|
 | ![1](/resource/spark/demo(1).png) | ![2](/resource/spark/demo(2).png) |
-| ![1](/resource/spark/demo(3).png) | ![2](/resource/spark/demo(4).png) |
-| ![1](/resource/spark/demo(5).png) ||
+| ![3](/resource/spark/demo(3).png) | ![4](/resource/spark/demo(4).png) |
+| ![5](/resource/spark/demo(5).png) | ![6](/resource/spark/demo(6).png) |
 
 ## :balloon:更新:balloon:
+
+- 2023.5.11:  
+    1.增加claude_slack  
+    2.修复一些小bug  
