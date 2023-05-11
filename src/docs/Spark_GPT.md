@@ -22,14 +22,14 @@ copyright: canxin121版权所属，禁止随意转载
 
 <!-- more -->
 
-## :yum:功能特性:yum:
+## :yum:功能特性:yum
 
 - 汇聚众多来源的gpt，支持多平台使用
 - 方便而全面的使用功能，便捷的管理员管理项
 - 完善的使用逻辑和任务处理逻辑
 - 美观而实用的markdown图片渲染回复
 
-## :heart_eyes:功能实用说明:heart_eyes:
+## :heart_eyes:功能实用说明:heart_eyes
 
 ### Spark-GPT 聚合帮助说明
 
@@ -157,7 +157,6 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/gwtalk / gwt + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
 
-
 #### 机器人管理命令
 
 | 命令 | 描述 |
@@ -177,13 +176,13 @@ copyright: canxin121版权所属，禁止随意转载
 
 ### spark-gpt Cluade_Slack使用说明
 
-## 对话命令
+#### 对话命令
 
 | 命令 | 描述 |
 | --- | --- |
 | `/ctalk / ct + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
 
-## 机器人管理命令
+#### 机器人管理命令
 
 | 命令 | 描述 |
 | --- | --- |
@@ -192,7 +191,38 @@ copyright: canxin121版权所属，禁止随意转载
 | `/cswitch / cs (+ 机器人名称)` | 切换到指定名称的机器人。 |
 | `/机器人名字 + 空格 + 你要询问的内容` | 指定机器人对话。 |
 
-## 管理员命令
+#### 管理员命令
+
+### spark-gpt Spark_desk使用说明
+
+- !!! 以下命令前面全部要加 '/' !!!  
+
+- 问答功能均支持以下特性：
+- 可以通过回复机器人的最后一个回答来继续对话，而无需命令；可以回复 "(清除/清空)(对话/历史)"或 "刷新对话" 或 "清除对话历史"来清空对话；  
+- 可以通过建议回复的数字索引来使用建议回复。
+
+#### 对话命令
+
+| 命令 | 描述 |
+| --- | --- |
+| `/sparktalk / st + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
+| `/机器人名字 + 空格 + 你要询问的内容` | 指定机器人对话。 |
+
+#### 机器人管理命令
+
+| 命令 | 描述 |
+| --- | --- |
+| `/screate / sc` | 创建机器人。 |
+| `/sparkremove / sr (+ 机器人名称)` | 删除指定名称的机器人。 |
+| `/sparkswitch / ss (+ 机器人名称)` | 切换到指定名称的机器人。 |
+
+#### 管理员命令
+
+- 仅限spark_desk管理员使用
+
+| 命令 | 描述 |
+| --- | --- |
+| `/scp / schangeprompt` | 切换自动创建的默认预设。 |
 
 - 仅限poe管理员使用
 
@@ -200,9 +230,9 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/ccp / cchangeprompt` | 切换自动创建的默认预设。 |
 
-## :dizzy_face:安装:dizzy_face:
+## :dizzy_face:安装:dizzy_face
 
-### step.1:yellow_heart:
+### step.1:yellow_heart
 
 #### nb安装  
 
@@ -216,7 +246,7 @@ nb plugin install nonebot-plugin-spark-gpt
 pip install nonebot-plugin-spark-gpt
 ```
 
-### step.2:blue_heart:
+### step.2:blue_heart
 
 > 用于poe的稳定实现和render的渲染图片
 
@@ -224,7 +254,7 @@ pip install nonebot-plugin-spark-gpt
 playwright install chromium
 ```
 
-## :punch:配置:punch:
+## :punch:配置:punch
 
 > （在.env或你是用的.env_*中修改）  
 
@@ -346,7 +376,7 @@ gpt_web_urlable = True
   首先参照 [slack app配置](https://ikechan8370.com/archives/chatgpt-plugin-for-yunzaipei-zhi-slack-claude )进行配置，获取到其中的（OAuth & Permissions中）User OAuth Token（xoxp-5258801~~,注意是xoxp不是xoxb）作为slack_user_token（必填）
 
 - channel_id获取:  
-然后进入slack聊天界面,选择(创建)一个专用的频道，将claude拉进这个频道。此时记下这个频道的网址中的channel_id（必填）（比如在这个链接中 https://app.slack.com/client/T057LPK0SP2/C0579MZR3LH/thread/C0579MZR3LH-1683734208.221819 ，channel_id是C0579MZR3LH，及thread前面的两个/中的内容）
+然后进入slack聊天界面,选择(创建)一个专用的频道，将claude拉进这个频道。此时记下这个频道的网址中的channel_id（必填）（比如在这个链接中 <https://app.slack.com/client/T057LPK0SP2/C0579MZR3LH/thread/C0579MZR3LH-1683734208.221819> ，channel_id是C0579MZR3LH，及thread前面的两个/中的内容）
 
 ```md
 #三个必填配置
@@ -367,16 +397,40 @@ claude_slack_urlable = True
 
 ```
 
-## :gift:示例:gift:
+### Spark_desk配置
+
+- 由于讯飞星火网页端设置了禁止调试，所以需要借助抓包软件(手机端小黄鸟,stream，loon等等，电脑端fiddler都可以)，在"https://xinghuo.xfyun.cn/iflygpt/u/chat_message/chat"这个请求中的请求头中提取提取cookie(必填), 请求体中提取fd, GtToken(如果无法正常使用，请填写这两个)
+
+```md
+#必填
+spark_desk_cookie = ""
+#如果不能使用，请填写
+spark_desk_fd = ""
+spark_desk_gtToken = ""
+
+#下面的配置会覆盖通用配置
+spark_desk_superusers = ["123456","132145"]
+spark_desk_mode = "white"
+spark_desk_whitelist = ["123","456"]
+spark_desk_blacklist = ["123","456"]
+spark_desk_limit = 350
+spark_desk_picable = True
+spark_desk_urlable = True
+```
+
+## :gift:示例:gift
 
 | Image 1 | Image 2 |
 |:-------:|:-------:|
 | ![1](/resource/spark/demo(1).png) | ![2](/resource/spark/demo(2).png) |
 | ![3](/resource/spark/demo(3).png) | ![4](/resource/spark/demo(4).png) |
 | ![5](/resource/spark/demo(5).png) | ![6](/resource/spark/demo(6).png) |
+| ![7](/resource/spark/demo(7).png) |
 
-## :balloon:更新:balloon:
+## :balloon:更新:balloon
 
-- 2023.5.11:  
+- 2023.5.11 0.1.4:  
+    1.增加讯飞星火模型(Spark_desk)  
+- 2023.5.11 0.1.3:  
     1.增加claude_slack  
     2.修复一些小bug  
