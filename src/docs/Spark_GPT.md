@@ -22,7 +22,7 @@ copyright: canxin121版权所属，禁止随意转载
 
 <!-- more -->
 
-## :yum:功能特性:yum
+## :yum:功能特性:yum:
 
 - 汇聚众多来源的gpt，支持多平台使用
 - 方便而全面的使用功能，便捷的管理员管理项
@@ -53,6 +53,18 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/gwhelp / gwh` | 获取GPT_Web帮助说明。 |
 
+#### Cluade_Slack帮助命令
+
+| 命令 | 描述 |
+| --- | --- |
+| `/chelp / ch` | 获取Cluade_Slack帮助说明。 |
+
+#### Spark_desk帮助命令
+
+| 命令 | 描述 |
+| --- | --- |
+| `/shelp / sh` | 获取Spark_desk帮助命令帮助说明。 |
+
 #### 通用命令
 
 - 所有用户均可使用
@@ -61,7 +73,7 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/botlist / bl` | 获取你的所有机器人的列表。 |
 
-- 只有spark管理员可以使用
+- 只有Spark-GPT管理员可以使用
 
 | 命令 | 描述 |
 | --- | --- |
@@ -193,6 +205,12 @@ copyright: canxin121版权所属，禁止随意转载
 
 #### 管理员命令
 
+- 仅限Cluade_Slack管理员使用
+
+| 命令 | 描述 |
+| --- | --- |
+| `/ccp / cchangeprompt` | 切换自动创建的默认预设。 |
+
 ### spark-gpt Spark_desk使用说明
 
 - !!! 以下命令前面全部要加 '/' !!!  
@@ -224,15 +242,10 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/scp / schangeprompt` | 切换自动创建的默认预设。 |
 
-- 仅限poe管理员使用
 
-| 命令 | 描述 |
-| --- | --- |
-| `/ccp / cchangeprompt` | 切换自动创建的默认预设。 |
+## :dizzy_face:安装:dizzy_face:
 
-## :dizzy_face:安装:dizzy_face
-
-### step.1:yellow_heart
+### step.1:yellow_heart:
 
 #### nb安装  
 
@@ -246,7 +259,7 @@ nb plugin install nonebot-plugin-spark-gpt
 pip install nonebot-plugin-spark-gpt
 ```
 
-### step.2:blue_heart
+### step.2:blue_heart:
 
 > 用于poe的稳定实现和render的渲染图片
 
@@ -254,7 +267,7 @@ pip install nonebot-plugin-spark-gpt
 playwright install chromium
 ```
 
-## :punch:配置:punch
+## :punch:配置:punch:
 
 > （在.env或你是用的.env_*中修改）  
 
@@ -399,7 +412,7 @@ claude_slack_urlable = True
 
 ### Spark_desk配置
 
-- 由于讯飞星火网页端设置了禁止调试，所以需要借助抓包软件(手机端小黄鸟,stream，loon等等，电脑端fiddler都可以)，在"https://xinghuo.xfyun.cn/iflygpt/u/chat_message/chat"这个请求中的请求头中提取提取cookie(必填), 请求体中提取fd, GtToken(如果无法正常使用，请填写这两个)
+- 由于讯飞星火网页端设置了禁止调试，所以需要借助抓包软件(手机端小黄鸟,stream，loon等等，电脑端fiddler都可以)，使用网页端进行对话，在"https://xinghuo.xfyun.cn/iflygpt/u/chat_message/chat"这个请求中的请求头中提取提取cookie(必填), 请求体中提取fd, GtToken(如果无法正常使用，请填写这两个)
 
 ```md
 #必填
@@ -418,7 +431,7 @@ spark_desk_picable = True
 spark_desk_urlable = True
 ```
 
-## :gift:示例:gift
+## :gift:示例:gift:
 
 | Image 1 | Image 2 |
 |:-------:|:-------:|
@@ -427,7 +440,7 @@ spark_desk_urlable = True
 | ![5](/resource/spark/demo(5).png) | ![6](/resource/spark/demo(6).png) |
 | ![7](/resource/spark/demo(7).png) |
 
-## :balloon:更新:balloon
+## :balloon:更新:balloon:
 
 - 2023.5.11 0.1.4:  
     1.增加讯飞星火模型(Spark_desk)  
