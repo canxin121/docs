@@ -29,7 +29,7 @@ copyright: canxin121版权所属，禁止随意转载
 - 完善的使用逻辑和任务处理逻辑
 - 美观而实用的markdown图片渲染回复
 
-## :heart_eyes:功能实用说明:heart_eyes
+## :heart_eyes:功能实用说明:heart_eyes:
 
 ### Spark-GPT 聚合帮助说明
 
@@ -180,7 +180,7 @@ copyright: canxin121版权所属，禁止随意转载
 
 #### 管理员命令
 
-> 仅限poe管理员使用
+> 仅限GPT_web使用
 
 | 命令 | 描述 |
 | --- | --- |
