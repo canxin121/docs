@@ -242,6 +242,20 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/scp / schangeprompt` | 切换自动创建的默认预设。 |
 
+### spark-gpt Bard使用说明
+
+- 机器人对每个人都是相互独立的。
+
+- !!! 以下命令前面全部要加 '/' !!!  
+
+#### 对话命令
+
+- 支持以下特性：可以通过对话 (清除/清空)(对话/历史)或"刷新对话"或"清空历史对话"来开启另一个新对话  
+- 对话一次后，就可以直接回复机器人给你的最后的回复来进行连续对话  
+
+| 命令 | 描述 |
+| --- | --- |
+| `/bard / gb + 内容` | 对话功能|
 
 ## :dizzy_face:安装:dizzy_face:
 
@@ -305,6 +319,8 @@ spark_suggestable
 #获取方式见后文代码块后截图
 poe_cookie = "f87HlVW- %3D%3D"
 
+#poe使用的api版本，0为http版，1为playwright版，默认为http版，建议不要修改
+poe_api_mode = 0
 #poe允许使用gpt4和claude+的用户，默认为superuser
 poe_accesslist = ["123","456"]
 
@@ -315,7 +331,7 @@ poe_name = canxin
 poe_passwd = passwd
 
 
-#以下配置会覆盖通用配置
+#以下配置会覆盖通用配置(选填)
 poe_superusers = ["123456","132145"]
 poe_mode = "white"
 poe_whitelist = ["123","456"]
@@ -339,10 +355,18 @@ cookie文件(必填)
 ![ck获取](/resource/spark/nbck.png)
 
 ```md
-#本地局域网代理链接
+#本地局域网代理链接(默认不用填写，国内网络也可以使用)
 newbing_proxy = 
+#wss link(如果不知道这是什么请不要填写这个，默认的值是可以使用的，乱改就用不了了)
+newbing_wss_link = ""
 
-#以下配置会覆盖通用配置
+#bing画图是否合并转发
+newbing_forward = False
+#bing画图是否先下载到本地
+newbing_predownload = False
+
+
+#以下配置会覆盖通用配置(选填)
 newbing_superusers = ["123456","132145"]
 newbing_mode = "white"
 newbing_whitelist = ["123","456"]
@@ -369,7 +393,7 @@ gpt_web_api_url = "https://chat.loli.vet/"
 
 #代理配置，视情况填写或不填
 gpt_web_proxy = "" 
-#以下配置会覆盖通用配置
+#以下配置会覆盖通用配置(选填)
 gpt_web_superusers = ["123456","132145"]
 gpt_web_mode = "white"
 gpt_web_whitelist = ["123","456"]
@@ -399,7 +423,7 @@ channel_id = "C0579MZR3LH"
 
 #代理配置视情况填写或不填写
 claude_slack_proxy = ""
-#以下配置会覆盖通用配置
+#以下配置会覆盖通用配置(选填)
 claude_slack_superusers = ["123456","132145"]
 claude_slack_mode = "white"
 claude_slack_whitelist = ["123","456"]
@@ -421,7 +445,7 @@ spark_desk_cookie = ""
 spark_desk_fd = ""
 spark_desk_gtToken = ""
 
-#下面的配置会覆盖通用配置
+#下面的配置会覆盖通用配置(选填)
 spark_desk_superusers = ["123456","132145"]
 spark_desk_mode = "white"
 spark_desk_whitelist = ["123","456"]
@@ -431,6 +455,26 @@ spark_desk_picable = True
 spark_desk_urlable = True
 ```
 
+### Bard配置
+
+- bard_cookie获取方式是在网页版bard发送问题，在开发者工具的网络中找的log?format=json&hasfast=true的请求头，复制其中的cookie的值
+
+![ck获取](/resource/spark/bardck.png)  
+
+```md
+#必填
+bard_cookie = ""
+
+#下面的配置会覆盖通用配置(选填)
+bard_superusers = ["123456","132145"]
+bard_mode = "white"
+bard_whitelist = ["123","456"]
+bard_blacklist = ["123","456"]
+bard_limit = 350
+bard_picable = True
+bard_urlable = True
+```
+
 ## :gift:示例:gift:
 
 | Image 1 | Image 2 |
@@ -438,12 +482,20 @@ spark_desk_urlable = True
 | ![1](/resource/spark/demo(1).png) | ![2](/resource/spark/demo(2).png) |
 | ![3](/resource/spark/demo(3).png) | ![4](/resource/spark/demo(4).png) |
 | ![5](/resource/spark/demo(5).png) | ![6](/resource/spark/demo(6).png) |
-| ![7](/resource/spark/demo(7).png) |
+| ![7](/resource/spark/demo(7).png) | ![8](/resource/spark/demo(8).png) |
+| ![9](/resource/spark/demo(9).png) |
 
 ## :balloon:更新:balloon:
 
+- 2023.5.13 0.1.7:  
+    1.增加一些配置项
+    2.poe增加http api版本
+- 2023.5.11 0.1.5:  
+    1.新增Bard的使用
+    2.修复以文字发送bug和newbing html图片显示bug 
 - 2023.5.11 0.1.4:  
     1.增加讯飞星火模型(Spark_desk)  
 - 2023.5.11 0.1.3:  
     1.增加claude_slack  
     2.修复一些小bug  
+
