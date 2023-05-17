@@ -149,8 +149,6 @@ playwright install chromium
 poe_cookie = "f87HlVW- %3D%3D"
 ```
 
-![ck获取](/resource/ck.png)
-
 ### 管理员账号(必填):two:
 
 2.poe_superusers，poe插件管理员qq号  
