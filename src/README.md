@@ -3,7 +3,7 @@ home: true
 icon: home
 title: 主页
 heroImage: /logo.png
-heroText: 残心小站
+heroText: 残心小站 
 tagline: 残心的文档库
 actions:
   - text: github主页
