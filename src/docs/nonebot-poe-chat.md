@@ -248,17 +248,6 @@ poe_passwd = passwd
 
 ## :gift:示例:gift:
 
-| Image 1 | Image 2 |
-|:-------:|:-------:|
-| ![1](/resource/demo(1).png) | ![2](/resource/demo(2).png) |
-| Image 3 | Image 4 |
-| ![3](/resource/demo(3).png) | ![4](/resource/demo(4).png) |
-| Image 5 | Image 6 |
-| ![5](/resource/demo(5).png) | ![6](/resource/demo(6).png) |
-| Image 7 | Image 8 |
-| ![7](/resource/demo(7).png) | ![8](/resource/demo(8).png) |
-| ![9](/resource/demo(9).png) | ![10](/resource/demo(10).png) |
-
 ## :balloon:更新:balloon:
 
 - 2023/5/2 v1.1.8:  
