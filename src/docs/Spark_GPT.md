@@ -71,7 +71,10 @@ copyright: canxin121版权所属，禁止随意转载
 
 | 命令 | 描述 |
 | --- | --- |
-| `/botlist / bl` | 获取你的所有机器人的列表。 |
+| `/bot列表 / botlist / bl` | 获取你的所有机器人的列表。 |
+| `/bot信息 / botinfo / bi + 名字` | 获取你的机器人的详细信息。 |
+| `/bot更改 / botchange / bc + 名字` | 更改你的机器人的信息。 |
+| `/共享bot列表 / sharebotlist / sbl` | 获取所有共享机器人的列表。 |
 
 - 只有Spark-GPT管理员可以使用
 
@@ -79,6 +82,8 @@ copyright: canxin121版权所属，禁止随意转载
 | --- | --- |
 | `/添加预设 / ap` | 添加通用预设 |
 | `/删除预设 / rp` | 删除通用预设 |
+| `/sbr / sharebotremove + 名字` | 删除共享机器人 |
+| `/sbc / sharebotchange + 名字` | 更改共享机器人 |
 
 ### spark-gpt Poe使用说明
 
@@ -125,7 +130,9 @@ copyright: canxin121版权所属，禁止随意转载
 
 | 命令 | 描述 |
 | --- | --- |
+| `/repoe / poe重启` | 手动重启poe client。(当出错后没自动重启成功时可以使用) |
 | `/poechangeprompt / 切换自动预设 / pcp` | 切换自动创建的默认预设。 |
+| `/poecreate / pc public` | 创建共享的机器人。 |
 
 ### spark-gpt NewBing使用说明
 
@@ -180,7 +187,7 @@ copyright: canxin121版权所属，禁止随意转载
 
 #### 管理员命令
 
-> 仅限GPT_web使用
+> 仅限GPT_web管理员使用
 
 | 命令 | 描述 |
 | --- | --- |
@@ -210,6 +217,7 @@ copyright: canxin121版权所属，禁止随意转载
 | 命令 | 描述 |
 | --- | --- |
 | `/ccp / cchangeprompt` | 切换自动创建的默认预设。 |
+| `/ccreate / cc  public` | 创建公用的机器人。 |
 
 ### spark-gpt Spark_desk使用说明
 
@@ -487,6 +495,13 @@ bard_urlable = True
 
 ## :balloon:更新:balloon:
 
+- 2023.5.17 0.1.9:  
+    1.增加共享机器人
+    2.增加查看，修改机器人功能
+    3.修复路径问题
+    4.修复poe http创建时的模型索引错误问题
+- 2023.5.13 0.1.8:  
+    1.增加poe http版出错后自动重启poe客户端
 - 2023.5.13 0.1.7:  
     1.增加一些配置项
     2.poe增加http api版本
