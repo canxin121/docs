@@ -72,7 +72,7 @@ copyright: canxin121版权所属，禁止随意转载
 | 命令 | 描述 |
 | --- | --- |
 | `/bot列表 / botlist / bl` | 获取你的所有机器人的列表。 |
-| `/bot信息 / botinfo / bi + 名字` | 获取你的机器人的详细信息。 |
+| `/bot信息 / botinfo / bf + 名字` | 获取你的机器人的详细信息。 |
 | `/bot更改 / botchange / bc + 名字` | 更改你的机器人的信息。 |
 | `/共享bot列表 / sharebotlist / sbl` | 获取所有共享机器人的列表。 |
 
