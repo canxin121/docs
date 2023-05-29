@@ -446,15 +446,14 @@ claude_slack_urlable = True
 
 ### Spark_desk配置
 
-- 由于讯飞星火网页端设置了禁止调试，所以需要借助抓包软件(手机端小黄鸟,stream，loon等等，电脑端fiddler都可以)，使用网页端进行对话，在"https://xinghuo.xfyun.cn/iflygpt/u/chat_message/chat"这个请求中的请求头中提取提取cookie(必填), 请求体中提取fd, GtToken(如果无法正常使用，请填写这两个)
+- 由于讯飞星火网页端设置了禁止调试，所以需要借助抓包软件(手机端小黄鸟,stream，loon等等，电脑端fiddler都可以)，使用网页端进行对话，在"https://xinghuo.xfyun.cn/iflygpt/u/chat_message/chat"这个请求中的请求头中提取提取cookie(必填), 请求体中提取fd, GtToken(如果无法正常使用，请填写这两个),响应体中提取sid(格式示例是cht000d1737@dx1886666eb4ab894540)
 
 ```md
-#必填
+#这几个都必填，否则会不稳定
 spark_desk_cookie = ""
-#如果不能使用，请填写
 spark_desk_fd = ""
-spark_desk_gtToken = ""
-
+spark_desk_gttoken = ""
+spark_desk_sid = ""
 #下面的配置会覆盖通用配置(选填)
 spark_desk_superusers = ["123456","132145"]
 spark_desk_mode = "white"
@@ -497,7 +496,14 @@ bard_urlable = True
 
 ## :balloon:更新:balloon:
 
-- 2023.5.25 0.2.7:
+
+- 2023.5.25 0.3.0:  
+    1.修复讯飞星火停止一段时间后不可用的bug
+- 2023.5.25 0.2.8:
+    1.修复一些bug
+    2.同步poe更新
+    3.将poe的默认api改成了playwright的api
+- 2023.5.23 0.2.7:
     1.修复gpt web出现 会话不存在的问题，如果出现请更新后 刷新对话，即可恢复
 - 2023.5.23 0.2.6:
     1.增加更多关于预设的命令
@@ -539,4 +545,3 @@ bard_urlable = True
 - 2023.5.11 0.1.3:  
     1.增加claude_slack  
     2.修复一些小bug  
-
