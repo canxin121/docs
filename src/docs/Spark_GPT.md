@@ -329,8 +329,8 @@ spark_suggestable
 #获取方式见后文代码块后截图
 poe_cookie = "f87HlVW- %3D%3D"
 
-#poe使用的api版本，0为http版，1为playwright版，默认为http版，建议不要修改
-poe_api_mode = 0
+#poe使用的api版本，0为http版，1为playwright版，默认为playwright版，建议不要修改
+poe_api_mode = 1
 #poe允许使用gpt4和claude+的用户，默认为superuser
 poe_accesslist = ["123","456"]
 
