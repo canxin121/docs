@@ -16,12 +16,6 @@ export const zhNavbar = navbar([
           {
             text: "Spark_GPT", icon: "more", link: "Spark_GPT" 
           },
-          {
-            text: "Nonebot-poe-chat", icon: "more", link: "nonebot-poe-chat" 
-          },
-          {
-            text: "Nonebot-api-paddle", icon: "more", link: "nonebot-api-paddle" 
-          }
         ],
       }
     ],

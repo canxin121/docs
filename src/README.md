@@ -17,16 +17,8 @@ features:
 
   - title: Spark-GPT
     icon: markdown
-    details: 全聚合的gpt插件，将各种ai接入各平台(未完待续)
+    details: 基于nonebot框架,将poe,chatgpt,slack claude,Newbing,google bard,讯飞星火模型(SparkDesk),通义千问等接入qq,tg,kook(原开黑啦)多平台用户绑定实现数据互通,并提供webui进行便捷配置,自适应文转图,实现预设人格化bot的便捷创建,使用和管理
     link: /docs/Spark_GPT.html
-  - title: nonebot-poe-chat
-    icon: markdown
-    details: 基于nonebot和playwright，将poe.com接入qq端交互
-    link: /docs/nonebot-poe-chat.html
 
-  - title: nonebot-api-paddle
-    icon: slides
-    details: 基于nonebot和paddle demo,将paddle的深度学习的部分功能接入qq
-    link: /docs/nonebot-api-paddle.html
 copyright: false
 footer: canxin121

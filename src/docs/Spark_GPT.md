@@ -8,542 +8,237 @@ comment: false
 category:
   - Nonebot
 tag:
-  - Chatgpt
-  - Claude
-  - Neeva
-  - Newbing
-  - Dalle
+  - poe
+  - chatgpt
+  - slack claude
+  - NewBing
+  - 讯飞星火语言模型
+  - 通义千问
 sticky: true
 star: true
 footer: canxin
-copyright: canxin121版权所属，禁止随意转载
 ---
+
+仅用于学习交流使用,请勿用于商用收费,请勿用于违法行为.
 
 
 <!-- more -->
+> 注意本插件使用了一个第三方程序进行文转图，所以不管你是否熟悉nonebot，请务必看教程2.(2)
 
-## :yum:功能特性:yum:
+# 介绍部分
 
-- 汇聚众多来源的gpt，支持多平台使用
-- 方便而全面的使用功能，便捷的管理员管理项
-- 完善的使用逻辑和任务处理逻辑
-- 美观而实用的markdown图片渲染回复
+## 功能特性
 
-## :heart_eyes:功能实用说明:heart_eyes:
+- 汇聚众多来源的gpt(poe(chatgpt+claude),chatgpt网页版,Newbing,slack claude,讯飞星火,通义千问),支持多平台(tg,kook(
+  原开黑啦),qq(gocq))使用且不同平台用户数据绑定互通
+- 支持人格预设系统,支持文转图文转链接,支持每个用户创建不同来源不同人格的bot,同时支持公用共同的bot
+- 支持webui配置各来源的配置项以及管理预设和人格
+- 性能和效率优秀,使用便捷方便,功能实用
+- 便捷的代码方式,全api统一调用,方便新增来源
+- 借助nonebot框架实现多平台统一消息处理,增加代码复用
 
-### Spark-GPT 聚合帮助说明
+## TodoList
 
-- 以下命令前面全部要加 '/'。
+1. 适配更多平台discord,飞书,微信,qq频道等
+2. 增加英文版本文档及代码提示内容
+3. 增加各来源chatbot的负载均衡
+4. 补全一些不同来源的gpt的功能
+5. 兼容py38
 
-#### Poe帮助命令
+# 使用说明
 
-| 命令 | 描述 |
-| --- | --- |
-| `/poehelp / ph` | 获取Poe帮助说明。 |
+## 一. 从零开始的安装教程
 
-#### Newbing帮助命令
+### 1.安装nonebot框架,并创建nonebot项目
 
-| 命令 | 描述 |
-| --- | --- |
-| `/binghelp / bh` | 获取Newbing帮助说明。 |
+#### (1).需要确保本机已安装python3.8及以上版本(推荐py3.11)并配置了正确的系统环境变量 (如果没有安装py,可以参考这个教程进行安装 => [Python初学者在不同系统上安装Python的保姆级指引](https://blog.csdn.net/qq_20288327/article/details/124387986))
 
-#### GPT_Web帮助命令
+#### (2).使用pipx安装nb-cli
 
-| 命令 | 描述 |
-| --- | --- |
-| `/gwhelp / gwh` | 获取GPT_Web帮助说明。 |
-
-#### Cluade_Slack帮助命令
-
-| 命令 | 描述 |
-| --- | --- |
-| `/chelp / ch` | 获取Cluade_Slack帮助说明。 |
-
-#### Spark_desk帮助命令
-
-| 命令 | 描述 |
-| --- | --- |
-| `/shelp / sh` | 获取Spark_desk帮助命令帮助说明。 |
-
-#### 通用命令
-
-- 所有用户均可使用
-
-| 命令 | 描述 |
-| --- | --- |
-| `/bot列表 / botlist / bl` | 获取你的所有机器人的列表。 |
-| `/bot信息 / botinfo / bf + 名字` | 获取你的机器人的详细信息。 |
-| `/bot更改 / botchange / bc + 名字` | 更改你的机器人的信息。 |
-| `/共享bot列表 / sharebotlist / sbl` | 获取所有共享机器人的列表。 |
-| `/预设列表 / 所有预设 / pl` | 获取所有所有可用本地预设 |
-| `/预设信息 / pf + (预设名称)` | 查看预设具体内容 |
-
-- 只有Spark-GPT管理员可以使用
-
-| 命令 | 描述 |
-| --- | --- |
-| `/添加预设 / ap` | 添加通用预设 |
-| `/删除预设 / rp` | 删除通用预设 |
-| `/sbr / sharebotremove + 名字` | 删除共享机器人 |
-| `/sbc / sharebotchange + 名字` | 更改共享机器人 |
-
-### spark-gpt Poe使用说明
-
-> 共享的机器人供多人共同使用，而用户隔离的机器人每个人都是相互独立的。
-
-> 以下命令前面全部要加 '/' ！！！！！
-
-> 对话问答功能均支持以下特性：
-
-> 可以通过回复机器人的最后一个回答来继续对话，而无需命令。
-
-> 可以回复 "(清除/清空)(对话/历史)" 或 刷新对话, 清除对话历史 或 "pd", "poedump", "pdump" 来清空对话。
-
-> 可以通过建议回复的数字索引来使用建议回复。
-
-#### 以下命令均支持用户隔离
-
-| 命令 | 描述 |
-| --- | --- |
-| `/ptalk / pt + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
-| `/poecreate / pc` | 创建机器人。 |
-| `/poeremove / pr (+ 机器人名称)` | 删除指定名称的机器人。 |
-| `/poeswitch / ps (+ 机器人名称)` | 切换到指定名称的机器人。 |
-| `你的机器人的名字 + 空格 + 你要询问的内容` | 指定机器人对话。 |
-
-#### 以下命令均是多用户共享的
-
-| 命令 | 描述 |
-| --- | --- |
-| `/psn + 你要搜索的内容` | NeevaAI搜索引擎，返回链接及标题。 |
-| `/psg + 你要询问的内容` | 共享的GPT对话。 |
-| `/psc + 你要询问的内容` | 共享的CLAUDE对话。 |
-| `/pss + 你要询问的内容` | 共享的SAGE对话。 |
-| `/psd + 你要询问的内容` | 共享的Dragonfly对话。 |
-
-#### 以下功能仅限特定白名单用户使用，同样是多用户共享的
-
-| 命令 | 描述 |
-| --- | --- |
-| `/psg4 + 询问内容` | 使用GPT4对话。 |
-| `/pscp + 询问内容` | 使用CLAUDE+对话。 |
-
-#### 以下功能仅限poe管理员使用
-
-| 命令 | 描述 |
-| --- | --- |
-| `/repoe / poe重启` | 手动重启poe client。(当出错后没自动重启成功时可以使用) |
-| `/poechangeprompt / 切换自动预设 / pcp` | 切换自动创建的默认预设。 |
-| `/poecreate / pc public` | 创建共享的机器人。 |
-
-### spark-gpt NewBing使用说明
-
-- 机器人对每个人都是相互独立的。
-
-- !!! 以下命令前面全部要加 '/' !!!  
-
-#### 对话命令
-
-- 支持以下特性：可以通过对话 (清除/清空)(对话/历史)或刷新对话来开启另一个新对话  
-- 对话一次后，就可以直接回复机器人给你的最后的回复来进行连续对话  
-- 可以通过建议回复的数字索引来使用建议回复  
-
-| 命令 | 描述 |
-| --- | --- |
-| `/bing / b + 内容` | 对话功能|
-
-#### 切换对话模式命令
-
-| 命令 | 描述 |
-| --- | --- |
-| `/bs / bingswitch / bing切换 (+ 数字)` | 切换对话模式，支持以下三种模式：1. 创造力模式；2. 均衡模式；3. 精确模式。 |
-
-#### 画图命令
-
-| 命令 | 描述 |
-| --- | --- |
-| `/bingdraw / bd / bing绘图(bing画图) + 要画的东西(中文/英文)` | Dall-e画图功能，可以画出指定的中文或英文内容。 |
-
-### spark-gpt GPT_web使用说明
-
-> !!! 以下命令前面全部要加 '/' !!!  
-
-> 问答功能均支持以下特性：可以通过回复机器人的最后一个回答来继续对话，而无需命令；
-
-> 可以回复 "(清除/清空)(对话/历史)"或 "刷新对话"，"清除对话历史"来清空对话；可以通过建议回复的数字索引来使用建议回复。  
-
-#### 对话命令
-
-| 命令 | 描述 |
-| --- | --- |
-| `/gwtalk / gwt + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
-
-#### 机器人管理命令
-
-| 命令 | 描述 |
-| --- | --- |
-| `/gwcreate / gwc` | 创建机器人。 |
-| `/gwremove / gwr (+ 机器人名称)` | 删除指定名称的机器人。 |
-| `/gwswitch / gws (+ 机器人名称)` | 切换到指定名称的机器人。 |
-| `/机器人名字 + 空格 + 你要询问的内容` | 指定机器人对话。 |
-
-#### 管理员命令
-
-> 仅限GPT_web管理员使用
-
-| 命令 | 描述 |
-| --- | --- |
-| `/gwcp / gwchangeprompt` | 切换自动创建的默认预设。 |
-
-### spark-gpt Cluade_Slack使用说明
-
-#### 对话命令
-
-| 命令 | 描述 |
-| --- | --- |
-| `/ctalk / ct + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
-
-#### 机器人管理命令
-
-| 命令 | 描述 |
-| --- | --- |
-| `/ccreate / cc` | 创建机器人。 |
-| `/cremove / cr (+ 机器人名称)` | 删除指定名称的机器人。 |
-| `/cswitch / cs (+ 机器人名称)` | 切换到指定名称的机器人。 |
-| `/机器人名字 + 空格 + 你要询问的内容` | 指定机器人对话。 |
-
-#### 管理员命令
-
-- 仅限Cluade_Slack管理员使用
-
-| 命令 | 描述 |
-| --- | --- |
-| `/ccp / cchangeprompt` | 切换自动创建的默认预设。 |
-| `/ccreate / cc  public` | 创建公用的机器人。 |
-
-### spark-gpt Spark_desk使用说明
-
-- !!! 以下命令前面全部要加 '/' !!!  
-
-- 问答功能均支持以下特性：
-- 可以通过回复机器人的最后一个回答来继续对话，而无需命令；可以回复 "(清除/清空)(对话/历史)"或 "刷新对话" 或 "清除对话历史"来清空对话；  
-- 可以通过建议回复的数字索引来使用建议回复。
-
-#### 对话命令
-
-| 命令 | 描述 |
-| --- | --- |
-| `/sparktalk / st + 你要询问的内容` | 对话功能，如果没创建机器人，对话将自动创建默认机器人。 |
-| `/机器人名字 + 空格 + 你要询问的内容` | 指定机器人对话。 |
-
-#### 机器人管理命令
-
-| 命令 | 描述 |
-| --- | --- |
-| `/screate / sc` | 创建机器人。 |
-| `/sparkremove / sr (+ 机器人名称)` | 删除指定名称的机器人。 |
-| `/sparkswitch / ss (+ 机器人名称)` | 切换到指定名称的机器人。 |
-
-#### 管理员命令
-
-- 仅限spark_desk管理员使用
-
-| 命令 | 描述 |
-| --- | --- |
-| `/scp / schangeprompt` | 切换自动创建的默认预设。 |
-
-### spark-gpt Bard使用说明
-
-- 机器人对每个人都是相互独立的。
-
-- !!! 以下命令前面全部要加 '/' !!!  
-
-#### 对话命令
-
-- 支持以下特性：可以通过对话 (清除/清空)(对话/历史)或"刷新对话"或"清空历史对话"来开启另一个新对话  
-- 对话一次后，就可以直接回复机器人给你的最后的回复来进行连续对话  
-
-| 命令 | 描述 |
-| --- | --- |
-| `/bard / gb + 内容` | 对话功能|
-
-## :dizzy_face:安装:dizzy_face:
-
-### step.1:yellow_heart:
-
-#### nb安装  
-
-```md
-nb plugin install nonebot-plugin-spark-gpt
-```
-
-#### 或者pip安装并添加到pyproject.toml的plugins列表中  
-
-```md
-pip install nonebot-plugin-spark-gpt
-```
-
-### step.2:blue_heart:
-
-> 用于poe的稳定实现和render的渲染图片
-
-```md
-playwright install chromium
-```
-
-## :punch:配置:punch:
-
-> （在.env或你是用的.env_*中修改）  
-
-### Spark-GPT通用配置
-
-> 除必填外均可省略不写
-> 通用配置可以被其他相应配置覆盖
-
-```md
-#spark-gpt 管理员(必填)
-spark_superusers = ["123456","789213"]
-#spark-gpt 响应模式，默认black黑名单模式，不允许blacklist中用户或群使用
-#而white为白名单模式，仅允许whitelist白名单用户或群使用
-
-spark_mode = "black"
-spark_blacklist = ["123456","789213"]
-spark_whitelist = ["123456","789213"]
-#通用输出控制
-#是否以图片形式回复，默认None，及根据回答字数限制limit来回复，大于限制回复图片，小于限制直接回复文本
-spark_picable = None
-#上文字数限制
-spark_limit
-#以图片回复时，是否附上原文本链接，默认True
-spark_urlable = True
-#是否开启建议回复，仅对poe和newbing有效,默认True
-spark_suggestable
-```
-
-### poe配置
-
-> 获取ck时请确保可以创建bot，先创建一个bot试一下
-
-```md
-#poe网站cookie(必填)
-#获取方式见后文代码块后截图
-poe_cookie = "f87HlVW- %3D%3D"
-
-#poe使用的api版本，0为http版，1为playwright版，默认为playwright版，建议不要修改
-poe_api_mode = 1
-#poe允许使用gpt4和claude+的用户，默认为superuser
-poe_accesslist = ["123","456"]
-
-#本地局域网代理端口配置(如果你开启代理后分流好，直接可以访问外网，请不要填写)
-#以下仅是示例，请填写你自己相应的配置
-poe_server = socks://127.0.0.1:7890
-poe_name = canxin
-poe_passwd = passwd
-
-
-#以下配置会覆盖通用配置(选填)
-poe_superusers = ["123456","132145"]
-poe_mode = "white"
-poe_whitelist = ["123","456"]
-poe_blacklist = ["123","456"]
-poe_limit = 350
-poe_picable = True
-poe_urlable = True
-poe_suggestable = True
+首先安装pipx  
+如果在此步骤的输出中出现了“open a new terminal”或者“re-login”字样，那么请关闭当前终端并重新打开一个新的终端。
 
 ```
-
-![ck获取](/resource/spark/ck.png)
-
-### Newbing配置
-
-cookie文件(必填)
-在`你的nonebot项目目录\data\spark_gpt\newbing_cookie.json`中填写cookie
-> cookie获取方法:
-> edge登录后打开newbing界面，确保可以使用的情况下，使用edge插件cookie-editor导出cookie为json，然后复制到此文件中
-
-![ck获取](/resource/spark/nbck.png)
-
-```md
-#本地局域网代理链接(默认不用填写，国内网络也可以使用)
-newbing_proxy = 
-#wss link(如果不知道这是什么请不要填写这个，默认的值是可以使用的，乱改就用不了了)
-newbing_wss_link = ""
-
-#bing画图是否合并转发
-newbing_forward = False
-#bing画图是否先下载到本地
-newbing_predownload = False
-
-
-#以下配置会覆盖通用配置(选填)
-newbing_superusers = ["123456","132145"]
-newbing_mode = "white"
-newbing_whitelist = ["123","456"]
-newbing_blacklist = ["123","456"]
-newbing_limit = 350
-newbing_picable = True
-newbing_urlable = True
-newbing_suggestable = True
-
+python -m pip install --user pipx
+python -m pipx ensurepath
 ```
 
-### ChatGPT_web配置
-
-session token文件(必填)
-在`你的nonebot项目目录\data\spark_gpt\gpt_web_session_token.txt`中填写session token
-> session token获取方法:
-> 登录后Chatgpt网页版后，F12打开开发者工具，在应用栏下找到cookie，点击后右侧找到__Secure-next-auth.session-token，复制它的值，粘贴到此文件中
-
-![session token获取](/resource/spark/session.png)
-
-```md
-#endpoint api地址,默认值能用的情况下不要填写，以下为默认值
-gpt_web_api_url = "https://chat.loli.vet/"
-
-#代理配置，视情况填写或不填
-gpt_web_proxy = "" 
-#以下配置会覆盖通用配置(选填)
-gpt_web_superusers = ["123456","132145"]
-gpt_web_mode = "white"
-gpt_web_whitelist = ["123","456"]
-gpt_web_blacklist = ["123","456"]
-gpt_web_limit = 350
-gpt_web_picable = True
-gpt_web_urlable = True
+然后使用pipx安装nb-cli
 
 ```
-
-### Claude_slack配置
-
-- claude_id获取:  
-首先将claude加入到你的slack中来，参考链接[Claude的添加教程](https://blog.csdn.net/Ping_lz/article/details/130329751),并点击应用中的claude，点击聊天界面上方的claude的头像，复制其中的成员id作为claude_id（必填），比如U057LPZPPSL。
-
-- slack_user_token获取:  
-  首先参照 [slack app配置](https://ikechan8370.com/archives/chatgpt-plugin-for-yunzaipei-zhi-slack-claude )进行配置，获取到其中的（OAuth & Permissions中）User OAuth Token（xoxp-5258801~~,注意是xoxp不是xoxb）作为slack_user_token（必填）
-
-- channel_id获取:  
-然后进入slack聊天界面,选择(创建)一个专用的频道，将claude拉进这个频道。此时记下这个频道的网址中的channel_id（必填）（比如在这个链接中 <https://app.slack.com/client/T057LPK0SP2/C0579MZR3LH/thread/C0579MZR3LH-1683734208.221819> ，channel_id是C0579MZR3LH，及thread前面的两个/中的内容）
-
-```md
-#三个必填配置
-slack_user_token = "xoxp-5258801026784~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-claude_id = "U057LPZPPSL"
-channel_id = "C0579MZR3LH"
-
-#代理配置视情况填写或不填写
-claude_slack_proxy = ""
-#以下配置会覆盖通用配置(选填)
-claude_slack_superusers = ["123456","132145"]
-claude_slack_mode = "white"
-claude_slack_whitelist = ["123","456"]
-claude_slack_blacklist = ["123","456"]
-claude_slack_limit = 350
-claude_slack_picable = True
-claude_slack_urlable = True
-
+pipx install nb-cli
 ```
 
-### Spark_desk配置
+#### (3).使用nb-cli创建nb项目目录
 
-- 由于讯飞星火网页端设置了禁止调试，所以需要借助抓包软件(手机端小黄鸟,stream，loon等等，电脑端fiddler都可以)，使用网页端进行对话，在"https://xinghuo.xfyun.cn/iflygpt/u/chat_message/chat"这个请求中的请求头中提取提取cookie(必填), 请求体中提取fd, GtToken(如果无法正常使用，请填写这两个),响应体中提取sid(格式示例是cht000d1737@dx1886666eb4ab894540)
+先找到一个目录,用来存放nb项目文件夹  
+比如我这里可以在win桌面按住shift再点击右键,打开一个powershell,就相当于吧nb项目文件夹创建在桌面上
+![打开powershell](/resource/Spark_GPT/1.png)  
+在命令行工具如powershell中输入
 
-```md
-#这几个都必填，否则会不稳定
-spark_desk_cookie = ""
-spark_desk_fd = ""
-spark_desk_gttoken = ""
-spark_desk_sid = ""
-#下面的配置会覆盖通用配置(选填)
-spark_desk_superusers = ["123456","132145"]
-spark_desk_mode = "white"
-spark_desk_whitelist = ["123","456"]
-spark_desk_blacklist = ["123","456"]
-spark_desk_limit = 350
-spark_desk_picable = True
-spark_desk_urlable = True
+```
+nb
 ```
 
-### Bard配置
+此时应该出现了交互式的面板用以创建nb项目,交互方式是鼠标点击选中或者上下键切换空格键选中，然后按enter提交并进入下一个界面  
+这里我们选择创建一个Nonebot项目并回车，而后提示输入一个名称，这里我们自己想一个名字输入就可以，这个名字是创建完成后文件夹的名字  
+![nb-cli](/resource/Spark_GPT/2.png)  
+然后选择bootstrap按enter  
+![nb-cli](/resource/Spark_GPT/3.png)  
+然后选中如图绿色驱动器的并enter  
+![nb-cli](/resource/Spark_GPT/4.png)  
+然后选中如图绿色的适配器并enter  
+![nb-cli](/resource/Spark_GPT/5.png)  
+然后选中如图连续输入两次Y来创建项目  
+![nb-cli](/resource/Spark_GPT/6.png)  
+最后提示我们选择内置插件，这里可以选择echo并回车，也可以不选，但是不要选择singlesession  
+![nb-cli](/resource/Spark_GPT/7.png)
+至此nb项目文件夹已经创建完毕
 
-- bard_cookie获取方式是在网页版bard发送问题，在开发者工具的网络中找的log?format=json&hasfast=true的请求头，复制其中的cookie的值
+### 2.安装本插件及依赖软件
 
-![ck获取](/resource/spark/bardck.png)  
+#### (1).使用nb命令一键安装插件，其他nb插件安装同理，可以去商店看看，有众多实用和有趣插件
 
-```md
-#必填
-bard_cookie = ""
+完成上一步(3)后，我们关闭powershell，并且打开这个新创建的nb项目的文件夹，在文件夹里面重新打开powershell  
+![nb-cli](/resource/Spark_GPT/8.png)  
+在命令行中输入
 
-#下面的配置会覆盖通用配置(选填)
-bard_superusers = ["123456","132145"]
-bard_mode = "white"
-bard_whitelist = ["123","456"]
-bard_blacklist = ["123","456"]
-bard_limit = 350
-bard_picable = True
-bard_urlable = True
+```
+nb plugin install spark_gpt
 ```
 
-## :gift:示例:gift:
+然后等待插件安装完毕
 
-| Image 1 | Image 2 |
-|:-------:|:-------:|
-| ![1](/resource/spark/demo(1).png) | ![2](/resource/spark/demo(2).png) |
-| ![3](/resource/spark/demo(3).png) | ![4](/resource/spark/demo(4).png) |
-| ![5](/resource/spark/demo(5).png) | ![6](/resource/spark/demo(6).png) |
-| ![7](/resource/spark/demo(7).png) | ![8](/resource/spark/demo(8).png) |
-| ![9](/resource/spark/demo(9).png) |
+#### (2).安装 wkhtmltopdf用以高效的文转图:
 
-## :balloon:更新:balloon:
+1. Debian/Ubuntu系统 使用apt命令一键安装即可:
 
-- 2023.6.5 0.3.3:  
-    1.修复一个gpt_web的日志错误
-    2.将EdgeGPT升到最新版并包装成上下文管理器
-- 2023.5.25 0.3.0:  
-    1.修复讯飞星火停止一段时间后不可用的bug
-- 2023.5.25 0.2.8:
-    1.修复一些bug
-    2.同步poe更新
-    3.将poe的默认api改成了playwright的api
-- 2023.5.23 0.2.7:
-    1.修复gpt web出现 会话不存在的问题，如果出现请更新后 刷新对话，即可恢复
-- 2023.5.23 0.2.6:
-    1.增加更多关于预设的命令
-    2.修复一些bug
-- 2023.5.23 0.2.6:
-    1.增加更多关于预设的命令
-    2.修复一些bug
-- 2023.5.23 0.2.5:
-    1.更新poe playwright api来同步新版的poe
-- 2023.5.22 0.2.4:
-    1.为claude的api设置2分钟超时
-    2.修复bot更改修改prompt出错的bug
-- 2023.5.22 0.2.3:
-    1.输错信息时提示终止
-    2.sbl和bl过长自动转图片
-    3./bs修复不能直接/bs 1这种的bug
-- 2023.5.19 0.2.2:
-    1.bing判断字数错误bug修复
-- 2023.5.18 0.2.1:  
-    1.帮助命令只加载配置好的
-- 2023.5.17 0.2.0:  
-    1.修复命令冲突和bard logger的bug
-    2.第一次使用自动创建bing的json
-- 2023.5.17 0.1.9:  
-    1.增加共享机器人
-    2.增加查看，修改机器人功能
-    3.修复路径问题
-    4.修复poe http创建时的模型索引错误问题
-- 2023.5.13 0.1.8:  
-    1.增加poe http版出错后自动重启poe客户端
-- 2023.5.13 0.1.7:  
-    1.增加一些配置项
-    2.poe增加http api版本
-- 2023.5.11 0.1.5:  
-    1.新增Bard的使用
-    2.修复以文字发送bug和newbing html图片显示bug
-- 2023.5.11 0.1.4:  
-    1.增加讯飞星火模型(Spark_desk)  
-- 2023.5.11 0.1.3:  
-    1.增加claude_slack  
-    2.修复一些小bug  
+```
+sudo apt-get install wkhtmltopdf
+```
+
+2. MacOSX系统 使用brew命令安装:
+
+```
+brew install --cask wkhtmltopdf
+```
+
+3. Windows 和其他系统:
+
+在[下载页面](https://wkhtmltopdf.org/downloads.html)下载对应版本安装，并将安装的目录下的bin目录添加到系统环境变量  
+例如windows操作如下  
+![nb-cli](/resource/Spark_GPT/9.png)  
+打开上面超链接，下载所指软件并安装，注意在安装时要注意记住你安装的路径是什么  
+![nb-cli](/resource/Spark_GPT/10.png)    
+根据上如的安装路径，我们来添加系统环境变量  
+首先搜索打开编辑系统环境变量界面  
+![nb-cli](/resource/Spark_GPT/11.png)  
+点击编辑系统环境变量  
+![nb-cli](/resource/Spark_GPT/12.png)  
+双击编辑系统变量中的Path变量  
+![nb-cli](/resource/Spark_GPT/13.png)  
+点击新建，并且在新的编辑框中输入你刚才记下的安装路径，后面在加上 /bin  ,比如我的安装路径是C:\Program Files\wkhtmltopdf，我就填写C:\Program Files\wkhtmltopdf\bin  
+![nb-cli](/resource/Spark_GPT/14.png)  
+最后记得一直点确定并关闭，确保保存成功
+### 3.配置本插件的env设置
+只有两个配置项,用以配置webui的地址  
+
+| 配置项        | 配置含义          |
+|------------|---------------|
+| spark_host | 本插件webui的host |
+|spark_port| 本插件webui的port |
+
+配置示例,如下填写到nonebot项目文件夹的.env文件后，就可以打开http://127.0.0.1:8666/来访问webui控制面板
+```
+spark_host = 127.0.0.1
+spark_port = 6666
+```
+
+### 4.配置好不同平台的对接,以在对应平台使用本插件
+1. qq平台:   使用gocq进行链接，把机器人的qq和你的nonebot框架对接起来  
+   这里只做简单描述，具体操作请看[gcoq及签名服务器部署](https://www.bilibili.com/video/BV1nu411h7bS/?spm_id_from=333.337.search-card.all.click&vd_source=8dd506c36e6670647607bab36d681869)  
+
+   简单描述:
+   首先我们在github[下载gocq](https://github.com/Mrs4s/go-cqhttp/releases),注意下载对应平台和架构的  
+   然后找一个文件夹用以存放gocq程序，在此处shift右击打开命令行，./gocq程序名称来初次运行，运行后生成配置文件，在config.yaml中填写对应配置，主要是qq和反代链接(注意obv11的反代地址是nonebot的env中配置的host(默认127.0.0.1)和port(默认8080)对应的 ws://host:port/onebot/v11/ws)以及签名服务器链接  
+   最后运行gocq并按提示登录你的机器人小号即可
+2. telegram平台:   使用nonebot的适配器一键链接  
+   如果你没有tg的bot，先申请一个bot:  
+   首先你需要有一个 Telegram 帐号，添加 BotFather 为好友。  
+   接着，向它发送 /newbot 指令，按要求回答问题。  
+   如果你成功创建了一个机器人，BotFather 会发给你机器人的 token,格式如下：    
+```
+1234567890:ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI
+```
+
+   然后你需要向 BotFather 发送 /setprivacy 并选择 Disable。  
+   并且你还需要向 BotFather 发送 /setinline。  
+   
+   最后将tgbot的token添加到nonebot项目文件夹的.env文件(如果你看不见,请开启显示隐藏的文件)中，格式如下：  
+   
+```
+telegram_bots = [{"token": "1234567890:ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI"}]
+```
+3.kook(原开黑啦)平台: 使用nonebot适配器一键链接  
+   首先如果你还没有kook的应用，请打开[KOOK开发者平台](https://developer.kookapp.cn/app/index)点击新建应用,并在创建后点击机器人的图标，选中左侧机器人一项，复制右侧token
+填写到nonebot项目文件夹的.env文件中，格式如下：  
+``` 
+kaiheila_bots =[{"token": "1/MTA2MjE=/DnbsqfmN6/IfVCrdOiGXKcQ=="}]
+```
+
+## 二. Webui配置介绍
+
+首页可以选择进入配置和预设两个配置面板  
+![webui首页](/resource/Spark_GPT/15.png)  
+配置界面可以配置各个来源的gpt所需的内容，各项均有小字注释来解释  
+![webui配置界面](/resource/Spark_GPT/16.png)  
+预设界面可以删除添加改名预设以及修改预设对应内容，点击左侧对应预设才会在右侧显示并可以显示对应预设  
+![webui预设界面](/resource/Spark_GPT/17.png)  
+
+### 三. 控制命令介绍
+#### 1.使用bot方式
+##### (1).使用命令:先查询可用的bot或创建新的bot,然后使用“前缀+bot名称+你所询问的内容 或 刷新指令”。这里前缀 "/" 使用自己的bot,前缀 "." 使用公用的bot.
+> 当询问内容为 刷新指令 也就是 "清除对话" 或 "清空对话" 或"刷新对话" 时,将清除和bot的聊天记录,即重新开始对话   
+ 
+ 一个可能的私有的bot使用示例为 “/chat 在吗?” 这里的chat就是我自己的bot,是我创建的,并且可以通过 “/所有bot” 查询
+ 一个可能的公用的bot使用示例为 “.chat 在吗?” 这里的chat是公用的bot,可以通过 “.所有bot” 查询,但只有本插件管理员可以创建  
+ 一个可能的清除某个bot的聊天记录的示例为 “/chat 刷新对话”  
+##### (2).无需命令:直接回复某个bot的最后一条消息来继续对话
+> 注意公用的bot可能也在和别人对话,所以最后一条消息不一定是发给你的最后一条
+
+#### 2.以下是bot管理命令列表,这里有两种不同前缀代表不用含义
+##### 使用**/**前缀表示管理自己的bot
+
+##### 使用**.** 前缀表示管理公用用户的bot
+
+| 命令 | 命令含义 | 命令可用用户 |
+| --- | --- | --- |
+| 所有bot | 查询所有的可用的bot | 所有用户可用 |
+| 创建bot | 创建新的bot | .开头仅SparkGPT管理员可用,/开头所有用户可用 |
+| 改名bot | 更改bot的名称 | .开头仅SparkGPT管理员可用,/开头所有用户可用 |
+| 删除bot | 删除指定bot | .开头仅SparkGPT管理员可用,/开头所有用户可用 |
+
+#### 3.以下是用户信息命令列表,所有命令前需要加上前缀{command_start}才能触发。
+
+| 命令 | 命令含义 | 命令可用用户 |
+| --- | --- | --- |
+| 用户信息 | 查询当前用户的通用用户的用户名和密钥.建议私聊使用 | 所有用户可用 |
+| 更改绑定 | 将当前平台账户绑定到指定通用账户,实现跨平台数据互通 | 所有用户可用 |
+
+
+#### 4.以下是预设管理命令列表,所有命令前需要加上前缀{command_start}才能触发。
+
+| 命令 | 命令含义 | 命令可用用户 |
+| --- | --- | --- |
+| 所有预设 | 给出所有预设的名称 | 所有用户可用 |
+| 查询预设 | 查询指定预设的内容 | 所有用户可用 |
+| 添加预设 | 添加新的预设 | SparkGPT管理员可用 |
+| 改名预设 | 修改预设的名字 | SparkGPT管理员可用 |
+| 删除预设 | 删除指定预设 | SparkGPT管理员可用 |
+
+#### 5.以下是webui管理命令列表,所有命令前需要加上前缀{command_start}才能触发
+
+| 命令 | 命令含义 | 命令可用用户 |
+| --- | --- | --- |
+| 开启webui | 默认开启,打开webui,并返回webui开启的端口(管理员可用) | SparkGPT管理员可用 |
+| 关闭webui | 请在使用webui后关闭(管理员可用) | SparkGPT管理员可用 |
