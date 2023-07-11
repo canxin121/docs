@@ -167,22 +167,22 @@ spark_port = 8666
 1. qq平台:   使用gocq进行链接，把机器人的qq和你的nonebot框架对接起来  
    这里只做简单描述，具体操作请看[gcoq及签名服务器部署](https://www.bilibili.com/video/BV1nu411h7bS/?spm_id_from=333.337.search-card.all.click&vd_source=8dd506c36e6670647607bab36d681869)  
 
-   简单描述:
+   简单描述:  
    (1).首先我们在github[下载gocq](https://github.com/Mrs4s/go-cqhttp/releases),注意下载对应平台和架构的  
    (2).然后找一个文件夹用以存放gocq程序，在此处shift右击打开命令行，./gocq程序名称来初次运行，运行后生成配置文件，在config.yaml中填写对应配置，主要是qq和反代链接(注意obv11的反代地址是nonebot的env中配置的host(默认127.0.0.1)和port(默认8080)对应的 ws://host:port/onebot/v11/ws)以及签名服务器链接  
    (3).最后运行gocq并按提示登录你的机器人小号即可
 2. telegram平台:   使用nonebot的telegram适配器一键链接  
    (1).如果你没有tg的bot，先申请一个bot:  
-      1).首先你需要有一个 Telegram 帐号，添加 BotFather 为好友。  
-      2).接着，向它发送 /newbot 指令，按要求回答问题。  
-      3).如果你成功创建了一个机器人，BotFather 会发给你机器人的 token,格式如下：    
+      ①.首先你需要有一个 Telegram 帐号，添加 BotFather 为好友。  
+      ②.接着，向它发送 /newbot 指令，按要求回答问题。  
+      ③.如果你成功创建了一个机器人，BotFather 会发给你机器人的 token,格式如下：    
 
 ```
 1234567890:ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI
 ```
 
-      4).然后你需要向 BotFather 发送 /setprivacy 并选择 Disable。  
-      5).并且你还需要向 BotFather 发送 /setinline。  
+      ④.然后你需要向 BotFather 发送 /setprivacy 并选择 Disable。  
+      ⑤.并且你还需要向 BotFather 发送 /setinline。  
    
    (2).将tgbot的token添加到nonebot项目文件夹的.env文件(如果你看不见,请开启显示隐藏的文件)中，格式如下：  
    
@@ -200,23 +200,23 @@ kaiheila_bots =[{"token": "1/MTA2MjE=/DnbsqfmN6/IfVCrdOiGXKcQ=="}]
 
 4.discord平台: 使用nonebot的discord适配器一键连接  
    (1).创建bot:  
-      1).在[discord application](https://discord.com/developers/applications)创建一个新的application  
-      2).进入创建的application后在左侧bot中创建新bot,复制token,并将下面的所有开关打开  
+      ①.在[discord application](https://discord.com/developers/applications)创建一个新的application  
+      ②.进入创建的application后在左侧bot中创建新bot,复制token,并将下面的所有开关打开  
    (2).安装和使用discord适配器  
-      1).安装discord适配器  
+      ①.安装discord适配器  
          由于目前没有正式发布,所以需要使用git安装(注意激活虚拟环境)  
 
 ```
 pip install git+https://github.com/CMHopeSunshine/adapter-discord.git@dev
 ```
 
-      2).配置pyproject.toml,在其中的adapters中添加  
+      ②.配置pyproject.toml,在其中的adapters中添加  
 
 ```
 { name = "discord", module_name = "nonebot.adapters.discord" }
 ```
 
-      3).配置.env.*,在其中添加,其中token的值,替换成刚才创建的bot的值  
+      ③.配置.env.*,在其中添加,其中token的值,替换成刚才创建的bot的值  
 
 ```
 DISCORD_BOTS='
