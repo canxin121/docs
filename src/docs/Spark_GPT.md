@@ -3,15 +3,21 @@ title: Spark_GPT
 icon: page
 order: 1
 author: canxin
-date: 2023-5-8
+date: 2023-7-11
 comment: false
 category:
   - Nonebot
 tag:
+  - qq
+  - telegram
+  - discord
+  - kook(开黑啦)
   - poe
   - chatgpt
   - slack claude
+  - Bard
   - NewBing
+  - SydneyBing
   - 讯飞星火语言模型
   - 通义千问
 sticky: true
@@ -25,14 +31,14 @@ footer: canxin
 <!-- more -->
 > 注意本插件使用了一个第三方程序进行文转图，所以不管你是否熟悉nonebot，请务必看教程2.(2)
 
-# 最新版本号1.1.2
+# 最新版本号1.1.3
 
 # 介绍部分
 
 ## 功能特性
 
 - 汇聚众多来源的gpt(poe(chatgpt+claude),chatgpt网页版,Newbing,slack claude,讯飞星火,通义千问),支持多平台(tg,kook(
-  原开黑啦),qq(gocq))使用且不同平台用户数据绑定互通
+  原开黑啦),qq(gocq),discord)使用且不同平台用户数据绑定互通
 - 支持人格预设和前缀系统,支持文转图文转链接,支持每个用户创建不同来源不同人格的bot,同时支持公用共同的bot
 - 注重提示词工程,通过提示词工程可以实现角色扮演,要求回复格式,如实现EitherChoice的对比功能
 - 支持webui配置各来源的配置项以及管理预设和人格
@@ -42,7 +48,7 @@ footer: canxin
 
 ## TodoList
 
-1. 适配更多平台discord,飞书,微信,qq频道等
+1. 适配更多平台~~discord~~,飞书,微信,qq频道等
 2. 增加英文版本文档及代码提示内容
 3. 增加各来源chatbot的负载均衡  
 4. ~~补全一些不同来源的gpt的功能~~
@@ -162,31 +168,68 @@ spark_port = 8666
    这里只做简单描述，具体操作请看[gcoq及签名服务器部署](https://www.bilibili.com/video/BV1nu411h7bS/?spm_id_from=333.337.search-card.all.click&vd_source=8dd506c36e6670647607bab36d681869)  
 
    简单描述:
-   首先我们在github[下载gocq](https://github.com/Mrs4s/go-cqhttp/releases),注意下载对应平台和架构的  
-   然后找一个文件夹用以存放gocq程序，在此处shift右击打开命令行，./gocq程序名称来初次运行，运行后生成配置文件，在config.yaml中填写对应配置，主要是qq和反代链接(注意obv11的反代地址是nonebot的env中配置的host(默认127.0.0.1)和port(默认8080)对应的 ws://host:port/onebot/v11/ws)以及签名服务器链接  
-   最后运行gocq并按提示登录你的机器人小号即可
-2. telegram平台:   使用nonebot的适配器一键链接  
-   如果你没有tg的bot，先申请一个bot:  
-   首先你需要有一个 Telegram 帐号，添加 BotFather 为好友。  
-   接着，向它发送 /newbot 指令，按要求回答问题。  
-   如果你成功创建了一个机器人，BotFather 会发给你机器人的 token,格式如下：    
+   (1).首先我们在github[下载gocq](https://github.com/Mrs4s/go-cqhttp/releases),注意下载对应平台和架构的  
+   (2).然后找一个文件夹用以存放gocq程序，在此处shift右击打开命令行，./gocq程序名称来初次运行，运行后生成配置文件，在config.yaml中填写对应配置，主要是qq和反代链接(注意obv11的反代地址是nonebot的env中配置的host(默认127.0.0.1)和port(默认8080)对应的 ws://host:port/onebot/v11/ws)以及签名服务器链接  
+   (3).最后运行gocq并按提示登录你的机器人小号即可
+2. telegram平台:   使用nonebot的telegram适配器一键链接  
+   (1).如果你没有tg的bot，先申请一个bot:  
+      1).首先你需要有一个 Telegram 帐号，添加 BotFather 为好友。  
+      2).接着，向它发送 /newbot 指令，按要求回答问题。  
+      3).如果你成功创建了一个机器人，BotFather 会发给你机器人的 token,格式如下：    
+
 ```
 1234567890:ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI
 ```
 
-   然后你需要向 BotFather 发送 /setprivacy 并选择 Disable。  
-   并且你还需要向 BotFather 发送 /setinline。  
+      4).然后你需要向 BotFather 发送 /setprivacy 并选择 Disable。  
+      5).并且你还需要向 BotFather 发送 /setinline。  
    
-   最后将tgbot的token添加到nonebot项目文件夹的.env文件(如果你看不见,请开启显示隐藏的文件)中，格式如下：  
+   (2).将tgbot的token添加到nonebot项目文件夹的.env文件(如果你看不见,请开启显示隐藏的文件)中，格式如下：  
    
 ```
 telegram_bots = [{"token": "1234567890:ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI"}]
 ```
-3.kook(原开黑啦)平台: 使用nonebot适配器一键链接  
-   首先如果你还没有kook的应用，请打开[KOOK开发者平台](https://developer.kookapp.cn/app/index)点击新建应用,并在创建后点击机器人的图标，选中左侧机器人一项，复制右侧token
+
+3.kook(原开黑啦)平台: 使用nonebot的kaiheila适配器一键链接  
+   首先创建kook的应用，请打开[KOOK开发者平台](https://developer.kookapp.cn/app/index)点击新建应用,并在创建后点击机器人的图标，选中左侧机器人一项，复制右侧token
 填写到nonebot项目文件夹的.env文件中，格式如下：  
+
 ``` 
 kaiheila_bots =[{"token": "1/MTA2MjE=/DnbsqfmN6/IfVCrdOiGXKcQ=="}]
+```
+
+4.discord平台: 使用nonebot的discord适配器一键连接  
+   (1).创建bot:  
+      1).在[discord application](https://discord.com/developers/applications)创建一个新的application  
+      2).进入创建的application后在左侧bot中创建新bot,复制token,并将下面的所有开关打开  
+   (2).安装和使用discord适配器  
+      1).安装discord适配器  
+         由于目前没有正式发布,所以需要使用git安装(注意激活虚拟环境)  
+
+```
+pip install git+https://github.com/CMHopeSunshine/adapter-discord.git@dev
+```
+
+      2).配置pyproject.toml,在其中的adapters中添加  
+
+```
+{ name = "discord", module_name = "nonebot.adapters.discord" }
+```
+
+      3).配置.env.*,在其中添加,其中token的值,替换成刚才创建的bot的值  
+
+```
+DISCORD_BOTS='
+[
+  {
+    "token": "xxx",
+    "intent": {
+      "guild_messages": true,
+      "direct_messages": true
+    }
+  }
+]
+'
 ```
 
 ## 二. Webui配置介绍
@@ -199,6 +242,12 @@ kaiheila_bots =[{"token": "1/MTA2MjE=/DnbsqfmN6/IfVCrdOiGXKcQ=="}]
 ![webui预设界面](/resource/Spark_GPT/17.png)  
 
 ## 三. 控制命令介绍
+
+命令前缀均可修改,
+
+以下介绍中,以前缀/表示使用自己的bot,前缀.表示公用的bot,这两个前缀可以在webui中进行修改
+以/表示nonebot的默认命令前缀,这个前缀可以在env中修改nonebot的响应命令前缀来进行修改
+
 #### 1.使用bot方式
 ##### (1).使用命令:先查询可用的bot或创建新的bot,然后使用“前缀+bot名称+你所询问的内容 或 刷新指令”。这里前缀 "/" 使用自己的bot,前缀 "." 使用公用的bot.
 > 当询问内容为 刷新指令 也就是 "清除对话" 或 "清空对话" 或"刷新对话" 时,将清除和bot的聊天记录,即重新开始对话   
@@ -221,7 +270,7 @@ kaiheila_bots =[{"token": "1/MTA2MjE=/DnbsqfmN6/IfVCrdOiGXKcQ=="}]
 | 改名bot | 更改bot的名称       | .开头仅SparkGPT管理员可用,/开头所有用户可用 |
 | 删除bot | 删除指定bot         | .开头仅SparkGPT管理员可用,/开头所有用户可用 |
 
-#### 3.以下是用户信息命令列表,所有命令前需要加上前缀{command_start}才能触发。
+#### 3.以下是用户信息命令列表,所有命令前需要加上前缀/才能触发。
 
 | 命令     | 命令含义                                            | 命令可用用户 |
 | -------- | --------------------------------------------------- | ------------ |
@@ -229,33 +278,33 @@ kaiheila_bots =[{"token": "1/MTA2MjE=/DnbsqfmN6/IfVCrdOiGXKcQ=="}]
 | 更改绑定 | 将当前平台账户绑定到指定通用账户,实现跨平台数据互通 | 所有用户可用 |
 
 
-# 4.以下是预设管理命令列表,所有命令前需要加上前缀{command_start}才能触发。
+# 4.以下是预设管理命令列表,所有命令前需要加上前缀/才能触发。
 
 > 预设是指在创建某个bot时,第一条发向这个bot的人格设定,并且刷新时也会一并发送
 
-| 命令 | 命令含义 | 命令可用用户 |
-| --- | --- | --- |
-| 所有预设 | 给出所有预设的名称 | 所有用户可用 |
-| 查询预设 | 查询指定预设的内容 | 所有用户可用 |
-| 添加预设 | 添加新的预设(可覆盖同名预设) | SparkGPT管理员可用 |
+| 命令     | 命令含义                       | 命令可用用户       |
+| -------- | ------------------------------ | ------------------ |
+| 所有预设 | 给出所有预设的名称             | 所有用户可用       |
+| 查询预设 | 查询指定预设的内容             | 所有用户可用       |
+| 添加预设 | 添加新的预设(可覆盖同名预设)   | SparkGPT管理员可用 |
 | 改名预设 | 修改预设的名字(可覆盖同名预设) | SparkGPT管理员可用 |
-| 删除预设 | 删除指定预设 | SparkGPT管理员可用 |
+| 删除预设 | 删除指定预设                   | SparkGPT管理员可用 |
 
-# 5.以下是前缀管理命令列表,所有命令前需要加上前缀{command_start}才能触发。
+# 5.以下是前缀管理命令列表,所有命令前需要加上前缀/才能触发。
 
 > 前缀是指创建的bot在每次对话时,都将在你的消息前面加上这个前缀,可以使bot的回复的格式和内容满足前缀要求
 
-| 命令 | 命令含义 | 命令可用用户 |
-| --- | --- | --- |
-| 所有前缀 | 给出所有前缀的名称 | 所有用户可用 |
-| 查询前缀 | 查询指定前缀的内容 | 所有用户可用 |
-| 添加前缀 | 添加新的前缀(可覆盖同名前缀) | SparkGPT管理员可用 |
+| 命令     | 命令含义                       | 命令可用用户       |
+| -------- | ------------------------------ | ------------------ |
+| 所有前缀 | 给出所有前缀的名称             | 所有用户可用       |
+| 查询前缀 | 查询指定前缀的内容             | 所有用户可用       |
+| 添加前缀 | 添加新的前缀(可覆盖同名前缀)   | SparkGPT管理员可用 |
 | 改名前缀 | 修改前缀的名字(可覆盖同名前缀) | SparkGPT管理员可用 |
-| 删除前缀 | 删除指定前缀 | SparkGPT管理员可用 |
+| 删除前缀 | 删除指定前缀                   | SparkGPT管理员可用 |
 
-# 6.以下是webui管理命令列表,所有命令前需要加上前缀{command_start}才能触发
+# 6.以下是webui管理命令列表,所有命令前需要加上前缀/才能触发
 
-| 命令 | 命令含义 | 命令可用用户 |
-| --- | --- | --- |
+| 命令      | 命令含义                                             | 命令可用用户       |
+| --------- | ---------------------------------------------------- | ------------------ |
 | 开启webui | 默认开启,打开webui,并返回webui开启的端口(管理员可用) | SparkGPT管理员可用 |
-| 关闭webui | 请在使用webui后关闭(管理员可用) | SparkGPT管理员可用 |
+| 关闭webui | 请在使用webui后关闭(管理员可用)                      | SparkGPT管理员可用 |
